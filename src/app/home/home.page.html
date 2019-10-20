@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Dragon Ball
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="none">
+    <ion-item *ngFor="let character of characters">
+        <ion-card [routerLink]="character.name" routerDirection="forward" class="card ion-text-center">
+          <h1>{{ character.name }}</h1>
+          <ion-card-content>
+              <img *ngIf="character.image.includes('../images')" src="{{imageUrl}}{{character.image.substr(3)}}"/>
+              <ion-img *ngIf="!(character.image.includes('../images'))" [src]="character.image"></ion-img>
+          </ion-card-content>
+        </ion-card>
+    </ion-item>
+  </ion-list>
+</ion-content>

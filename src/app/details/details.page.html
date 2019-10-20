@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-capitalize">{{ details?.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div *ngIf="details" class="ion-text-center">
+    <div>
+      <img *ngIf="details.image.includes('../images')" src="{{imageUrl}}{{details.image.substr(3)}}" />
+      <ion-img *ngIf="!(details.image.includes('../images'))" [src]="details.image"></ion-img>
+      <h2>{{ details.name }}</h2>
+    </div>
+    <hr color="black" style="margin: 10px;">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <b>Gender:</b>
+        </ion-col>
+        <ion-col>
+          {{ details.gender }}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <b>Original Planet:</b>
+        </ion-col>
+        <ion-col>
+          {{ details.originPlanet }}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <b>Series:</b>
+        </ion-col>
+        <ion-col>
+          {{ details.series }}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <b>Species:</b>
+        </ion-col>
+        <ion-col>
+          {{ details.species }}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col>
+            <b>Status:</b>
+          </ion-col>
+          <ion-col>
+            {{ details.status }}
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
+<ion-footer class="ion-text-center">
+    <ion-toolbar *ngIf="details">
+        <ion-title>Created On:  {{ details.created | date: 'dd MMM, yyyy' }}</ion-title>
+      </ion-toolbar>
+</ion-footer>

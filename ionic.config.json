@@ -1,0 +1,8 @@
+{
+  "name": "DragonBall",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+  
+}
